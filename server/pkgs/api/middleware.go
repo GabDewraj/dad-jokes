@@ -58,7 +58,7 @@ func filterContentType(handler http.Handler) http.Handler {
 }
 
 // Type 2
-func ApiKeyAuth() mux.MiddlewareFunc {
+func ApiKeyAuth(apiKeyHeader string) mux.MiddlewareFunc {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 			fmt.Print("Hello from inside the middleware \n")

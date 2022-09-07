@@ -21,7 +21,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
+	log.Print("Header", newConfig.ApiKeyConfig.Header)
 	dbConn, err := config.NewDB(&newConfig.DbConfig, 3)
 	if err != nil {
 		panic(err)
@@ -49,7 +49,7 @@ func main() {
 	router.HandleFunc("/apikey", newHandler.GenerateApiKey)
 	// Create a subrouter for a protected route
 	protectedRoutes := router.PathPrefix("/new").Subrouter()
-	protectedRoutes.Use(api.ApiKeyAuth())
+	protectedRoutes.Use(api.ApiKeyAuth(newConfig.ApiKeyConfig.Header))
 	protectedRoutes.HandleFunc("/jokes", newHandler.CreateNewJoke).Methods(http.MethodPost)
 	// Run the server with https protocal
 	certPath := newConfig.Certificate.CertificateFilePath

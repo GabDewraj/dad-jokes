@@ -14,8 +14,13 @@ import (
 var ErrCannotEstablishDbConnection = errors.New("cannot connect to db")
 
 type Config struct {
-	DbConfig    DbConfig
-	Certificate Certificate
+	DbConfig     DbConfig
+	Certificate  Certificate
+	ApiKeyConfig ApiKeyConfig
+}
+
+type ApiKeyConfig struct {
+	Header string
 }
 type DbConfig struct {
 	Host     string

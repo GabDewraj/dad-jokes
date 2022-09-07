@@ -73,12 +73,9 @@ func (h *handler) CreateNewJoke(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 	defer req.Body.Close()
-	type reponseBody struct {
-		Message string `json:"message"`
-	}
-	respBody := &reponseBody{
-		Message: fmt.Sprintf("Joke with id %d saved successfully", newJokeReq.ID),
-	}
+
+	respBody := fmt.Sprintf("Joke with id %d and author %s saved successfully",
+		newJokeReq.ID, newJokeReq.Author)
 	_ = json.NewEncoder(res).Encode(&respBody)
 }
 
