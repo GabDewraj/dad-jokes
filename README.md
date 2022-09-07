@@ -12,8 +12,8 @@
 
 - This small project includes a microservice labelled as "server" (just for context) and 
     some code to initialise the database structure with seeding ("db").
-- Navigate to the root folder of this project.
-- and paste this command into your terminal : ```sh server/build/run.sh```
+- Navigate to the root folder of this project (dad-jokes).
+- Paste this command into your terminal : ```sh server/build/run.sh```
 - This command achieves the following:
     - Composes all containers to be used.
     - Initialises the database and seeds it with some dummy data.
