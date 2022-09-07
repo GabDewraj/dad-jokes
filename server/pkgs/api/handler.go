@@ -47,6 +47,7 @@ func (h *handler) GetJokes(res http.ResponseWriter, req *http.Request) {
 	}
 	offset, err := strconv.Atoi(req.URL.Query().Get("offset"))
 	if err != nil {
+		log.Print(err)
 		http.Error(res, err.Error(), http.StatusBadRequest)
 		return
 	}
