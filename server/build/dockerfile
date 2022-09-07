@@ -1,4 +1,4 @@
-FROM golang:1.18.2-alpine AS build_base
+FROM golang:1.19-alpine AS build_base
 
 RUN apk add --no-cache git
 
@@ -12,9 +12,8 @@ RUN go mod tidy
 RUN go mod download
 
 
-# #  PLace the executable on the top level to make it accessible
-COPY cmd/main.go .
-RUN go build -o ./inventory
+# Build the app
+RUN go build -o server "./cmd/"
 
 
 # Unit tests
@@ -22,16 +21,17 @@ RUN go build -o ./inventory
 # Second build with Artifact from the previous build
 FROM alpine:3.9 
 RUN apk add ca-certificates
-ARG APP_ENV
-ENV APP_ENV=${APP_ENV}
+ARG ENV
+ENV ENV=${ENV}
 
-COPY --from=build_base /build/inventory /app/inventory
-COPY ./cmd/config/$APP_ENV.yml ./config/$APP_ENV.yml
-COPY ./cmd/certificates/$APP_ENV.crt ./certificates/$APP_ENV.crt
-COPY ./cmd/certificates/$APP_ENV.key ./certificates/$APP_ENV.key
+COPY --from=build_base /build /app
+COPY ./cmd/config/$ENV.yml ./config/$ENV.yml
+COPY ./cmd/certificates/$ENV.crt ./certificates/$ENV.crt
+COPY ./cmd/certificates/$ENV.key ./certificates/$ENV.key
 
 # This container exposes port 9000 to the outside world
 EXPOSE 8080
+EXPOSE 8081
 
 # Run the binary program produced by `go install`
-CMD ["/app/inventory"]
+CMD ["/app/server"]

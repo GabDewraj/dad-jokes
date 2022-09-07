@@ -1,0 +1,7 @@
+# Postgres
+dbConfig:
+  host: "jokeDb"
+  user: "user"
+  password: "password"
+  database: "jokeDb"
+  port: "5432"
