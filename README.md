@@ -131,7 +131,7 @@ which will automatically escape arguments to avoid SQL injection
 
 - A cache (Redis) would be used in production to store the API keys of respective 3rd party APIs between being stored in an RDS after the expired ttl.
 - Use an offset type pagination to retrieve a list of dad jokes.
-- This API may serve both 3rd party API users and Frontend Browser clients that is why CORS is included as apart of the middleware stack.
+- This API may serve both 3rd party API users and Frontend Browser clients, that is why CORS is included as apart of the middleware stack.
 
 
 ## Improvements given more time
