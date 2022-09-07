@@ -59,6 +59,56 @@ var DummyData = []Joke{
 		Body:   "I could never be a plumber<>it’s too hard watching your life’s work go down the drain.",
 		Author: "github.com",
 	},
+	{
+		Model:  gorm.Model{},
+		Body:   "I am such a good singer that people always ask me to sing solo<>solo that they can’t hear me.",
+		Author: "github.com",
+	},
+	{
+		Model:  gorm.Model{},
+		Body:   "I am such a good singer that people ask me to sing tenor<>tenor twelve miles away.",
+		Author: "github.com",
+	},
+	{
+		Model:  gorm.Model{},
+		Body:   "I’ve never trusted stairs. <>They are always up to something.",
+		Author: "github.com",
+	},
+	{
+		Model:  gorm.Model{},
+		Body:   "Why did Shakespeare’s wife leave him? <>She got sick of all the drama.",
+		Author: "github.com",
+	},
+	{
+		Model:  gorm.Model{},
+		Body:   "If you want to get a job at the moisturizer factory... <>you’re going to have to apply daily.",
+		Author: "github.com",
+	},
+	{
+		Model:  gorm.Model{},
+		Body:   "I don’t know what’s going to happen next year. <>It’s probably because I don’t have 2020 vision.",
+		Author: "github.com",
+	},
+	{
+		Model:  gorm.Model{},
+		Body:   "Want to hear a joke about going to the bathroom? <>Urine for a treat.",
+		Author: "github.com",
+	},
+	{
+		Model:  gorm.Model{},
+		Body:   "I couldn’t figure out how to use the seat belt. <>Then it just clicked.",
+		Author: "github.com",
+	},
+	{
+		Model:  gorm.Model{},
+		Body:   "I got an email the other day teaching me how to read maps backwards<>turns out it was just spam.",
+		Author: "github.com",
+	},
+	{
+		Model:  gorm.Model{},
+		Body:   "I'm reading a book about anti-gravity.<> It's impossible to put down!",
+		Author: "github.com",
+	},
 }
 
 func NewDB(dbConfig *DbConfig, maxRetries int) (*gorm.DB, error) {
