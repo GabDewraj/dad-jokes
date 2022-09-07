@@ -21,7 +21,7 @@
 ### Generate an API key
 
 - Description: This endpoint allows a user to retrieve an api key.
-- Method: ``GET`
+- Method: ``GET``
 - Endpoint: ``/apikey``
 - Port: ``8080``
 - Reponse: ``Here is your key tgZ6bLqzjwoZvoD2iThbPS``
@@ -45,8 +45,8 @@
 - Responses
     - Status OK(200) Body format: ``"message":"Joke with id 10 saved successfully"``
     - Bad Request (400) Body format: 
-        `` json: cannot unmarshal number into Go struct field Joke.author of type string ``
-        `` json: cannot unmarshal bool into Go struct field Joke.author of type string ``
+        - `` json: cannot unmarshal number into Go struct field Joke.author of type string ``
+        - `` json: cannot unmarshal bool into Go struct field Joke.author of type string ``
     - Unauthorized: `` secret not found for key ``
 
 ### Get a list of dad jokes.
