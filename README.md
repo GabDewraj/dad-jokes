@@ -18,7 +18,7 @@
     - Composes all containers to be used.
     - Initialises the database and seeds it with some dummy data.
 
-## API'S Present and their descriptions.
+## API's present and their descriptions.
 
 ### Health-Check
 
