@@ -35,7 +35,7 @@
 - Description: This endpoint allows a user to generate and retrieve a personalized api key.
 - Method: ``GET``
 - Endpoint: ``https://localhost:8080/apikey``
-- Reponse: ``Here is your key tgZ6bLqzjwoZvoD2iThbPS``
+- Reponse: ``Here is your key tgZ6bLqzjwoZvoD2iThbPS`` (*this is just an example)
 
 ### Create a new dad joke.
 
