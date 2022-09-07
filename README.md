@@ -54,7 +54,7 @@
 
 - Response Body data type: ``application/json``
 - Responses
-    - Status OK(200) Body format: ``"message":"Joke with id 10 saved successfully"``
+    - Status OK(200) Body format: ``Joke with id 11 and author Gabriel saved successfully``
     - Bad Request (400) Body format: 
         - `` json: cannot unmarshal number into Go struct field Joke.author of type string ``
         - `` json: cannot unmarshal bool into Go struct field Joke.author of type string ``
