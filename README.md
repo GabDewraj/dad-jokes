@@ -66,7 +66,7 @@
 - Description: This unauthenticated endpoint allows a user to retrieve a paginated list 
             of dad jokes.
 - Method: ``GET``
-- Endpoint: ``https://localhost:8080/jokes?limit=8&offset=10``
+- Endpoint: ``https://localhost:8080/jokes?limit=8&offset=10`` (*this is just an example, you can change the limit and offset)
 - Pagination Type: ``offset``
 - Query Params: 
 
