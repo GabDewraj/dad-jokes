@@ -94,7 +94,7 @@ func NewDB(dbConfig *DbConfig, maxRetries int) (*gorm.DB, error) {
 		if ConnectionRetryCount == maxRetries {
 			return nil, ErrCannotEstablishDbConnection
 		}
-		time.Sleep(1 * time.Second)
+		time.Sleep(2 * time.Second)
 	}
 	log.Print("Connection to the DB is successful")
 	return dbConn, nil
