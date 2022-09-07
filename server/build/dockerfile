@@ -1,0 +1,37 @@
+FROM golang:1.18.2-alpine AS build_base
+
+RUN apk add --no-cache git
+
+# Set the Current Working Directory inside the container
+RUN mkdir build
+WORKDIR /build
+
+# # Copy source directory
+COPY . .
+RUN go mod tidy
+RUN go mod download
+
+
+# #  PLace the executable on the top level to make it accessible
+COPY cmd/main.go .
+RUN go build -o ./inventory
+
+
+# Unit tests
+
+# Second build with Artifact from the previous build
+FROM alpine:3.9 
+RUN apk add ca-certificates
+ARG APP_ENV
+ENV APP_ENV=${APP_ENV}
+
+COPY --from=build_base /build/inventory /app/inventory
+COPY ./cmd/config/$APP_ENV.yml ./config/$APP_ENV.yml
+COPY ./cmd/certificates/$APP_ENV.crt ./certificates/$APP_ENV.crt
+COPY ./cmd/certificates/$APP_ENV.key ./certificates/$APP_ENV.key
+
+# This container exposes port 9000 to the outside world
+EXPOSE 8080
+
+# Run the binary program produced by `go install`
+CMD ["/app/inventory"]

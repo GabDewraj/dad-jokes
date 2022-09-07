@@ -1,0 +1,32 @@
+version: "2.3"
+
+services:
+  server:
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: ./build/dockerfile
+      args:
+        - ENV=local
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "jokeDb"
+    environment:
+      - ENV=local
+
+  jokeDb:
+    container_name: jokeDb
+    image: postgres:12.5-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: jokeDb
+    volumes:
+      - jokeDb:/var/lib/postgresql/data
+
+volumes:
+  jokeDb:
+    driver: local
