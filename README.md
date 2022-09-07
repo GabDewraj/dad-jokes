@@ -136,12 +136,15 @@ which will automatically escape arguments to avoid SQL injection
 
 ## Improvements given more time
 
-- Include gh workflows to include unit testing and code linting to ensure good code coverage.
+- Include gh workflows to include unit testing and code linting to ensure good code coverage
+and clean code.
 - Increased unit testing of code (Positive and negative cases).
 - Better error handling with more specific and cleaner error descriptions.
 - Inclusion of a more appropriate API documentation tool such as  OPENAPI Swagger.
 - Inclusion of infrastructure code for build and deployment (buildspec.yml,appspec.yml and taskDef.json), this is if using aws managed services (CODEBUILD,CODEDEPLOY)
 - Durable Storage implementation to rotate API keys between a Redis Cache for performance and long term storage in PostgreSQL.
+- Spend more time creating a more robust ERD that can be extensible to future usecases.
+
 
 
 
