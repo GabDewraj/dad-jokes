@@ -18,6 +18,14 @@
 
 ## API'S Present and their descriptions.
 
+### Generate an API key
+
+- Description: This endpoint allows a user to retrieve an api key.
+- Method: ``GET`
+- Endpoint: ``/apikey``
+- Port: ``8080``
+- Reponse: ``Here is your key tgZ6bLqzjwoZvoD2iThbPS``
+
 ### Create a new dad joke.
 
 - Description: This endpoint allows an authorized user to save his or her own dad jokes.
@@ -34,11 +42,14 @@
     ``
 
 - Response Body data type: ``application/json``
-- Response Body format: ``"message":"Joke with id 10 saved successfully"``
-                    
+- Responses
+    - Status OK(200) Body format: ``"message":"Joke with id 10 saved successfully"``
+    - Bad Request (400) Body format: 
+        `` json: cannot unmarshal number into Go struct field Joke.author of type string ``
+        `` json: cannot unmarshal bool into Go struct field Joke.author of type string ``
+    - Unauthorized: `` secret not found for key ``
 
 ### Get a list of dad jokes.
-
 - Description: This unauthenticated endpoint allows a user to retrieve a paginated list 
             of dad jokes.
 - Method: ``GET``
@@ -54,28 +65,29 @@
 
 
 - Response Body data type: ``application/json``
- 
-- Response Body format: 
+- Responses
+    - Status OK (200) Response Body format: 
 
 
-        [
-            {
-                "id": 3,
-                "body": "I broke my arm in two places. <>My doctor told me to stop going to those places.",
-                "author": "github.com",
-                "createdAt": "2022-09-07T05:29:00.807276Z",
-                "updatedAt": "2022-09-07T05:29:00.807276Z"
-            },
-            {
-                "id": 4,
-                "body": "I quit my job at the coffee shop the other day. <>It was just the same old grind over and over.",
-                "author": "github.com",
-                "createdAt": "2022-09-07T05:29:00.807276Z",
-                "updatedAt": "2022-09-07T05:29:00.807276Z"
-            },
+            [
+                {
+                    "id": 3,
+                    "body": "I broke my arm in two places. <>My doctor told me to stop going to those places.",
+                    "author": "github.com",
+                    "createdAt": "2022-09-07T05:29:00.807276Z",
+                    "updatedAt": "2022-09-07T05:29:00.807276Z"
+                },
+                {
+                    "id": 4,
+                    "body": "I quit my job at the coffee shop the other day. <>It was just the same old grind over and over.",
+                    "author": "github.com",
+                    "createdAt": "2022-09-07T05:29:00.807276Z",
+                    "updatedAt": "2022-09-07T05:29:00.807276Z"
+                },
 
-            ...
-        ]
+                ...
+            ]
+    - Bad request (400) Body format : ``strconv.Atoi: parsing "": invalid syntax``
 
 
 ### Get a Random Dad Joke.
@@ -85,7 +97,7 @@
 - Endpoint: ``/random/jokes``
 - Port: ``8080``
 - Response Body data type: ``application/json``
-- Response Body format: 
+- Status OK (200) Response Body format: 
 
         {
             "id": 4,

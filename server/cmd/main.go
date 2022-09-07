@@ -32,7 +32,7 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/jokes", newHandler.GetJokes).Methods(http.MethodGet)
 	router.HandleFunc("/random/jokes", newHandler.GetRandomJoke).Methods(http.MethodGet)
-	router.HandleFunc("/key", newHandler.GenerateApiKey)
+	router.HandleFunc("/apikey", newHandler.GenerateApiKey)
 	// Create a subrouter for a protected route
 	protectedRoutes := router.PathPrefix("/new").Subrouter()
 	protectedRoutes.Use(api.ApiKeyAuth())
