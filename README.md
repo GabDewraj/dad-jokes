@@ -144,6 +144,7 @@ and clean code.
 - Inclusion of infrastructure code for build and deployment (buildspec.yml,appspec.yml and taskDef.json), this is if using aws managed services (CODEBUILD,CODEDEPLOY)
 - Durable Storage implementation to rotate API keys between a Redis Cache for performance and long term storage in PostgreSQL.
 - Spend more time creating a more robust ERD that can be extensible to future usecases.
+- Take more time to think about better RESTful endpoint naming.
 
 
 
