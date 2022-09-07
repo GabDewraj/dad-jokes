@@ -22,6 +22,7 @@
 
 ### Health-Check
 
+- Protocal: HTTPS
 - Description: This endpoint allows for health check probes from a load balancer, target group and container to ensure service is running.
 - Method: `` Any method is fine``
 - Endpoint: ``https://localhost:8080/health-check``
@@ -30,6 +31,7 @@
 
 ### Generate an API key
 
+- Protocal: HTTPS
 - Description: This endpoint allows a user to generate and retrieve a personalized api key.
 - Method: ``GET``
 - Endpoint: ``https://localhost:8080/apikey``
@@ -37,6 +39,7 @@
 
 ### Create a new dad joke.
 
+- Protocal: HTTPS
 - Description: This endpoint allows an authorized user to save his or her own dad jokes.
 - Method: ``Post``
 - Endpoint: ``https://localhost:8080/new/jokes``
@@ -58,10 +61,12 @@
     - Unauthorized: `` secret not found for key ``
 
 ### Get a list of dad jokes.
+
+- Protocal: HTTPS
 - Description: This unauthenticated endpoint allows a user to retrieve a paginated list 
             of dad jokes.
 - Method: ``GET``
-- Endpoint: ``https://localhost:8080/jokes?limit={insert limit}&offset={insert offset}``
+- Endpoint: ``https://localhost:8080/jokes?limit=8&offset=10``
 - Pagination Type: ``offset``
 - Query Params: 
 
@@ -99,6 +104,7 @@
 
 ### Get a Random Dad Joke.
 
+- Protocal: HTTPS
 - Description: This unauthenticated endpoint allows a user to retrieve a random dad jokes.
 - Method: ``GET``
 - Endpoint: ``https://localhost:8080/random/jokes``
