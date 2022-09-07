@@ -10,7 +10,7 @@
 
 ## How to run the is project locally 
 
-- This small project includes a microservice labelled as "server" just for context and 
+- This small project includes a microservice labelled as "server" (just for context) and 
     some code to initialise the database structure with seeding ("db").
 - Navigate to the root folder of this project.
 - and paste this command into your terminal : ```sh server/build/run.sh```
