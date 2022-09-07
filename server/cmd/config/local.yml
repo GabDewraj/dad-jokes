@@ -1,7 +1,10 @@
 # Postgres
 dbConfig:
-  host: "jokeDb"
+  host: "localhost"
   user: "user"
   password: "password"
   database: "jokeDb"
   port: "5432"
+
+apiKeyConfig:
+  header: "X-Dad-Jokes-Access-Token"

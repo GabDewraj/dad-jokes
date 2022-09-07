@@ -1,1 +1,4 @@
 # aws configs that are not credential level and parameter based
+
+apiKeyConfig:
+  header: "X-Dad-Jokes-Access-Token"
