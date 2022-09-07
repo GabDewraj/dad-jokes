@@ -10,6 +10,8 @@
 
 ## How to run the is project locally 
 
+- This small project includes a microservice labelled as "server" just for context and 
+    some code to initialise the database structure with seeding ("db").
 - Navigate to the root folder of this project.
 - and paste this command into your terminal : ```sh server/build/run.sh```
 - This command achieves the following:
@@ -115,3 +117,21 @@
             "createdAt": "2022-09-07T05:29:00.807276Z",
             "updatedAt": "2022-09-07T05:29:00.807276Z"
         }
+
+## Approach
+
+- Understand deliverables carefully to produce the desired API behavior as described.
+- Create a quick an easy project that can be deployed (infrastructure code was ommitted due to time) and run locally.
+- Use a microservice and domain driven approach that is go idiomatic for ease of reading.
+
+## Assumptions
+
+- A cache (Redis) would be used in production to store API keys of respective 3rd party apis between being stored in an RDS after the expired ttl.
+
+- Use an offset type pagination to retrieve a list of dad jokes.
+
+- This API may serve both 3rd party API users and Frontend Browser clients.
+
+
+
+

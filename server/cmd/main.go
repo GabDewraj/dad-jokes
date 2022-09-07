@@ -10,6 +10,7 @@ import (
 	"api-keys/pkgs/jokes"
 	"api-keys/pkgs/repo"
 
+	"github.com/go-chi/cors"
 	"github.com/gorilla/mux"
 )
 
@@ -30,6 +31,17 @@ func main() {
 	newHandler := api.NewHandler(service)
 
 	router := mux.NewRouter()
+	// CORS middleware for frontend consumers
+	router.Use(cors.Handler(cors.Options{
+		// AllowedOrigins:   []string{"https://foo.com"}, // Use this to allow specific origin hosts
+		AllowedOrigins: []string{"https://*", "http://*"},
+		// AllowOriginFunc:  func(r *http.Request, origin string) bool { return true },
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
+		ExposedHeaders:   []string{"Link"},
+		AllowCredentials: true,
+		MaxAge:           300, // Maximum value not ignored by any of major browsers
+	}))
 	// Health check
 	router.HandleFunc("/health-check", newHandler.HealthCheckHandler)
 	router.HandleFunc("/jokes", newHandler.GetJokes).Methods(http.MethodGet)
