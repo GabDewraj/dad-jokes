@@ -24,8 +24,7 @@
 
 - Description: This endpoint allows for health check probes from a load balancer, target group and container to ensure service is running.
 - Method: `` Any method is fine``
-- Endpoint: ``/health-check``
-- Port: ``8080``
+- Endpoint: ``https://localhost:8080/health-check``
 - Reponses:
     - Status OK (200) body format: empty.
 
@@ -33,16 +32,14 @@
 
 - Description: This endpoint allows a user to generate and retrieve a personalized api key.
 - Method: ``GET``
-- Endpoint: ``/apikey``
-- Port: ``8080``
+- Endpoint: ``https://localhost:8080/apikey``
 - Reponse: ``Here is your key tgZ6bLqzjwoZvoD2iThbPS``
 
 ### Create a new dad joke.
 
 - Description: This endpoint allows an authorized user to save his or her own dad jokes.
 - Method: ``Post``
-- Endpoint: ``/new/jokes``
-- Port: ``8080``
+- Endpoint: ``https://localhost:8080/new/jokes``
 - Authorization:   API key must be present in the header                                     ``X-Dad-Jokes-Access-Token``
 
 - Request Body Data Type: ``application/json``
@@ -64,8 +61,7 @@
 - Description: This unauthenticated endpoint allows a user to retrieve a paginated list 
             of dad jokes.
 - Method: ``GET``
-- Endpoint: ``/jokes``
-- Port: ``8080``
+- Endpoint: ``https://localhost:8080/new/jokes``
 - Pagination Type: ``offset``
 - Query Params: 
 
@@ -105,8 +101,7 @@
 
 - Description: This unauthenticated endpoint allows a user to retrieve a random dad jokes.
 - Method: ``GET``
-- Endpoint: ``/random/jokes``
-- Port: ``8080``
+- Endpoint: ``https://localhost:8080/random/jokes``
 - Response Body data type: ``application/json``
 - Status OK (200) Response Body format: 
 
