@@ -71,9 +71,9 @@
 - Query Params: 
 
 
-        limit: string *number of results to receive.
+        limit: number of results to receive.
 
-        offset: string *number of entries you want to skip.
+        offset: number of entries you want to skip.
 
 
 - Response Body data type: ``application/json``
