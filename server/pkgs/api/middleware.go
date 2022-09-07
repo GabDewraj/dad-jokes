@@ -3,8 +3,7 @@ package api
 import (
 	"net/http"
 
-	"api-keys/pkgs/secrets"
-
+	"github.com/GabDewraj/dad-jokes/pkgs/secrets"
 	"github.com/gorilla/mux"
 )
 

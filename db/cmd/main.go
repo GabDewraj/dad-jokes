@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"db/cmd/config"
+	"github.com/GabDewraj/dad-jokes/db/cmd/config"
 )
 
 var env = os.Getenv("APP_ENV")

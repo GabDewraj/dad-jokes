@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"api-keys/pkgs/jokes"
-	"api-keys/pkgs/secrets"
+	"github.com/GabDewraj/dad-jokes/pkgs/jokes"
+	"github.com/GabDewraj/dad-jokes/pkgs/secrets"
 )
 
 type handler struct {

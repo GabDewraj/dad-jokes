@@ -6,11 +6,10 @@ import (
 	"os"
 	"strconv"
 
-	"api-keys/cmd/config"
-	"api-keys/pkgs/api"
-	"api-keys/pkgs/jokes"
-	"api-keys/pkgs/repo"
-
+	"github.com/GabDewraj/dad-jokes/cmd/config"
+	"github.com/GabDewraj/dad-jokes/pkgs/api"
+	"github.com/GabDewraj/dad-jokes/pkgs/jokes"
+	"github.com/GabDewraj/dad-jokes/pkgs/repo"
 	"github.com/go-chi/cors"
 	"github.com/gorilla/mux"
 

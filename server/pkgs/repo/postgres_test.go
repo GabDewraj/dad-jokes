@@ -3,9 +3,8 @@ package repo
 import (
 	"testing"
 
-	"api-keys/cmd/config"
-	"api-keys/pkgs/jokes"
-
+	"github.com/GabDewraj/dad-jokes/cmd/config"
+	"github.com/GabDewraj/dad-jokes/pkgs/jokes"
 	"github.com/stretchr/testify/assert"
 )
 

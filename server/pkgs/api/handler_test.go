@@ -8,8 +8,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"api-keys/pkgs/jokes"
-
+	"github.com/GabDewraj/dad-jokes/pkgs/jokes"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

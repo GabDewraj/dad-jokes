@@ -1,6 +1,6 @@
-module db
+module github.com/GabDewraj/dad-jokes/db
 
-go 1.18
+go 1.19
 
 require (
 	github.com/spf13/viper v1.11.0

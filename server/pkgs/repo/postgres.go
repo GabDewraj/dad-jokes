@@ -4,8 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"api-keys/pkgs/jokes"
-
+	"github.com/GabDewraj/dad-jokes/pkgs/jokes"
 	"gorm.io/gorm"
 )
 
