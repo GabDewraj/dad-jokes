@@ -7,6 +7,8 @@ import (
 	"github.com/lithammer/shortuuid"
 )
 
+// Make shift in memory cache
+
 var vault []string
 
 func AddSecret() string {

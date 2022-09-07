@@ -30,6 +30,8 @@ func main() {
 	newHandler := api.NewHandler(service)
 
 	router := mux.NewRouter()
+	// Health check
+	router.HandleFunc("/health-check", newHandler.HealthCheckHandler)
 	router.HandleFunc("/jokes", newHandler.GetJokes).Methods(http.MethodGet)
 	router.HandleFunc("/random/jokes", newHandler.GetRandomJoke).Methods(http.MethodGet)
 	router.HandleFunc("/apikey", newHandler.GenerateApiKey)

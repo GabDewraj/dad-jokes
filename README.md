@@ -18,6 +18,15 @@
 
 ## API'S Present and their descriptions.
 
+### Health-Check
+
+- Description: This endpoint allows for health check probes from a load balancer, target group and container to ensure service is running.
+- Method: `` Any method is fine``
+- Endpoint: ``/health-check``
+- Port: ``8080``
+- Reponses:
+    - Status OK (200) body format: empty.
+
 ### Generate an API key
 
 - Description: This endpoint allows a user to retrieve an api key.
