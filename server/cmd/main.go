@@ -42,7 +42,7 @@ func main() {
 			Database: dbName,
 			Port:     portNum,
 		}
-		dbConn, err = config.NewDB(awsDBConfig, 2)
+		dbConn, err = config.NewDB(awsDBConfig, 4)
 		if err != nil {
 			panic(err)
 		}
