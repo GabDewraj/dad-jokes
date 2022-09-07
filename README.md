@@ -26,7 +26,7 @@
 - Description: This endpoint allows for health check probes from a load balancer, target group and container to ensure service is running.
 - Method: `` Any method is fine``
 - Endpoint: ``https://localhost:8080/health-check``
-- Reponses:
+- Responses:
     - Status OK (200) body format: empty.
 
 ### Generate an API key
@@ -35,7 +35,7 @@
 - Description: This endpoint allows a user to generate and retrieve a personalized api key.
 - Method: ``GET``
 - Endpoint: ``https://localhost:8080/apikey``
-- Reponse: ``Here is your key tgZ6bLqzjwoZvoD2iThbPS`` (*this is just an example)
+- Response: ``Here is your key tgZ6bLqzjwoZvoD2iThbPS`` (*this is just an example)
 
 ### Create a new dad joke.
 
@@ -60,7 +60,7 @@
     - Bad Request (400) Body format: 
         - `` json: cannot unmarshal number into Go struct field Joke.author of type string ``
         - `` json: cannot unmarshal bool into Go struct field Joke.author of type string ``
-    - Unauthorized: `` secret not found for key ``
+    - Unauthorized(401): `` secret not found for key ``
 
 ### Get a list of dad jokes.
 
