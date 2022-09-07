@@ -122,15 +122,26 @@
 
 - Understand deliverables carefully to produce the desired API behavior as described.
 - Create a quick an easy project that can be deployed (infrastructure code was ommitted due to time) and run locally.
+- Ensure data is protected from sql injection by using an ORM that actively prevents against this.
+- GORM uses the database/sql‘s argument placeholders to construct the SQL statement,
+which will automatically escape arguments to avoid SQL injection
 - Use a microservice and domain driven approach that is go idiomatic for ease of reading.
 
 ## Assumptions
 
 - A cache (Redis) would be used in production to store API keys of respective 3rd party apis between being stored in an RDS after the expired ttl.
-
 - Use an offset type pagination to retrieve a list of dad jokes.
+- This API may serve both 3rd party API users and Frontend Browser clients that is why CORS is included as apart of the middleware stack.
 
-- This API may serve both 3rd party API users and Frontend Browser clients.
+
+## Improvements given more time
+
+- Include gh workflows to include unit testing and code linting to ensure good code coverage.
+- Increased unit testing of code (Positive and negative cases).
+- Better error handling with more specific and cleaner error descriptions.
+- Inclusion of a more appropriate API documentation tool such as  OPENAPI Swagger.
+- Inclusion of infrastructure code for build and deployment (buildspec.yml,appspec.yml and taskDef.json), this is if using aws managed services (CODEBUILD,CODEDEPLOY)
+- Durable Storage implementation to rotate API keys between a Redis Cache for performance and long term storage in PostgreSQL.
 
 
 
