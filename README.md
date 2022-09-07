@@ -48,8 +48,8 @@
 - Request Body Data Type: ``application/json``
 - Request Body format: 
     ``
-        "body": string,
-        "author": string,
+       { "body": string,
+        "author": string,}
     ``
 
 - Response Body data type: ``application/json``
