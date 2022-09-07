@@ -31,7 +31,7 @@
 
 ### Generate an API key
 
-- Description: This endpoint allows a user to retrieve an api key.
+- Description: This endpoint allows a user to generate and retrieve a personalized api key.
 - Method: ``GET``
 - Endpoint: ``/apikey``
 - Port: ``8080``
