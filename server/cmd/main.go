@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 
 	"api-keys/cmd/config"
 	"api-keys/pkgs/api"
@@ -12,19 +13,46 @@ import (
 
 	"github.com/go-chi/cors"
 	"github.com/gorilla/mux"
+
+	"gorm.io/gorm"
 )
 
-var env = os.Getenv("ENV")
+var (
+	// Variables can injected for aws RDS at image build time with secrets manager
+	env        = os.Getenv("ENV")
+	dbHost     = os.Getenv("DB_HOST")
+	dbUser     = os.Getenv("DB_USER")
+	dbPassword = os.Getenv("DB_PASSWORD")
+	dbPort     = os.Getenv("DB_PORT")
+	dbName     = os.Getenv("DB_NAME")
+	dbConn     *gorm.DB
+)
 
 func main() {
 	newConfig, err := config.NewConfig(env)
 	if err != nil {
 		panic(err)
 	}
-	log.Print("Header", newConfig.ApiKeyConfig.Header)
-	dbConn, err := config.NewDB(&newConfig.DbConfig, 3)
-	if err != nil {
-		panic(err)
+	// Establish Database connection in aws or local.
+	if env == "aws" {
+		portNum, _ := strconv.Atoi(dbPort)
+		awsDBConfig := &config.DbConfig{
+			Host:     dbHost,
+			User:     dbUser,
+			Password: dbPassword,
+			Database: dbName,
+			Port:     portNum,
+		}
+		dbConn, err = config.NewDB(awsDBConfig, 2)
+		if err != nil {
+			panic(err)
+		}
+
+	} else {
+		dbConn, err = config.NewDB(&newConfig.DbConfig, 2)
+		if err != nil {
+			panic(err)
+		}
 	}
 	repo := repo.NewJokeRepo(dbConn)
 	service := jokes.NewService(repo)

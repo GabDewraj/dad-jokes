@@ -80,7 +80,6 @@ func NewDB(dbConfig *DbConfig, maxRetries int) (*gorm.DB, error) {
 	// Connect to postgres in container
 	path := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%d",
 		dbConfig.Host, dbConfig.User, dbConfig.Password, dbConfig.Database, dbConfig.Port)
-	log.Print(dbConfig)
 
 	var ConnectionRetryCount int
 	var dbConn *gorm.DB

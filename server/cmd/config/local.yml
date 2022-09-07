@@ -1,6 +1,6 @@
 # Postgres
 dbConfig:
-  host: "localhost"
+  host: "jokeDb"
   user: "user"
   password: "password"
   database: "jokeDb"
