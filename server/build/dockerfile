@@ -31,7 +31,5 @@ COPY ./cmd/certificates/$ENV.key ./certificates/$ENV.key
 
 # This container exposes port 9000 to the outside world
 EXPOSE 8080
-EXPOSE 8081
-
 # Run the binary program produced by `go install`
 CMD ["/app/server"]
