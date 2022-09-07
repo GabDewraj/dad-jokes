@@ -50,7 +50,6 @@ func (h *handler) GetJokes(res http.ResponseWriter, req *http.Request) {
 		http.Error(res, err.Error(), http.StatusBadRequest)
 		return
 	}
-	log.Print(limit, offset)
 	retrievedJokes, err := h.service.GetJokes(offset, limit)
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)

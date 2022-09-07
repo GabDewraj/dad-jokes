@@ -1,7 +1,6 @@
 package repo
 
 import (
-	"log"
 	"math/rand"
 	"time"
 
@@ -25,13 +24,11 @@ func (r *repo) CreateNewJoke(newJoke *jokes.Joke) error {
 
 // GetJokes implements jokes.Repository
 func (r *repo) GetJokes(offset int, limit int) (*[]jokes.Joke, error) {
-	log.Print(offset, limit)
 	var jokes []jokes.Joke
 	if err := r.db.Scopes(paginate(offset,
 		limit)).Find(&jokes).Error; err != nil {
 		return nil, err
 	}
-	log.Print(jokes)
 	return &jokes, nil
 }
 
